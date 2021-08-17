@@ -1,15 +1,41 @@
-import styles from "../styles/Home.module.css";
+import React from 'react'
+import Image from 'next/image'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import { BodyContainer, MainSection, PageContainer, ColumnContainer, Title } from '../styles/styles'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>Take Home Test</h1>
-      </main>
+    <BodyContainer className="BodyContainer">
+      <Header />
+      <MainSection className="MainSection">
+        <PageContainer className="PageContainer">
+          <ColumnContainer className="ColumnContainer">
+            <div>
+              <Image src="/images/user.png" alt="Image" width="200" height="200" />
+            </div>
+            <div>
+              <ul>
+                <li>Name:</li>
+                <li>Company:</li>
+                <li>Description:</li>
+              </ul>
+            </div>
+          </ColumnContainer>
 
-      <footer className={styles.footer}>
-        <h3>Footer</h3>
-      </footer>
-    </div>
-  );
+          <ColumnContainer className="ColumnContainer">
+            <Title>Repository</Title>
+            <div>
+              <ul>
+                <li>Name:</li>
+                <li>Description:</li>
+                <li>Commits:</li>
+              </ul>
+            </div>
+          </ColumnContainer>
+        </PageContainer>
+      </MainSection>
+      <Footer />
+    </BodyContainer>
+  )
 }
