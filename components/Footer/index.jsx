@@ -1,27 +1,29 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { FooterSection, FullContainer, Title, Credits } from './style'
+import { FooterSection, Container, SubContainer, Title, Credits } from './style'
 
 const Footer = () => {
   return (
-    <FooterSection>
-      <FullContainer>
-        <div className="container-fluid justify-content-center mb-3">
+    <FooterSection className="FooterSection">
+      <Container className="FooterContainer">
+        <SubContainer className="project">
           <Title>Take Home Test 2021</Title>
-        </div>
-        <div className="container-fluid justify-content-center mb-3">
+        </SubContainer>
+
+        <SubContainer className="developer">
           <Credits>Lucas Koval | Full Stack Developer</Credits>
-        </div>
-        <div className="container-fluid justify-content-center">
-          <Link href="mailto:lucaskovaldev@gmail.com">
-            <a target="_blank" rel="noreferrer" title="Email">
-              <Image src="/icons/email.png" alt="Email" width="37px" height="36px" className=" " />
+        </SubContainer>
+
+        <SubContainer className="contact">
+          <Link href="https://lucaskovaldev.com/">
+            <a target="_blank" rel="noreferrer" title="Portfolio" className="me-4">
+              <Image src="/icons/pf.svg" alt="Portfolio" width="40px" height="40" />
             </a>
           </Link>
-          <Link href="https://lucaskovaldev.com/">
-            <a target="_blank" rel="noreferrer" title="Portfolio" className="ms-4">
-              <Image src="/icons/pf.svg" alt="Portfolio" width="40px" height="40" />
+          <Link href="mailto:lucaskovaldev@gmail.com">
+            <a target="_blank" rel="noreferrer" title="Email">
+              <Image src="/icons/email.png" alt="Email" width="37px" height="36px" />
             </a>
           </Link>
           <Link href="https://www.linkedin.com/in/lucaskoval/">
@@ -40,8 +42,8 @@ const Footer = () => {
               />
             </a>
           </Link>
-        </div>
-      </FullContainer>
+        </SubContainer>
+      </Container>
     </FooterSection>
   )
 }
