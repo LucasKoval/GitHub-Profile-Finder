@@ -1,52 +1,39 @@
-import React from 'react'
-import Image from 'next/image'
-import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client'
+import React, { useState } from 'react'
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+import Loader from 'react-loader-spinner'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { BodyContainer, MainSection, PageContainer, ColumnContainer, Title } from '../styles/styles'
-import { GET_ALL_DATA, GET_USER_INFO, GET_REPOSITORIES } from '../services/query'
+import SearchBar from '../components/SearchBar'
+import Results from '../components/Results'
+import { BodyContainer, MainSection, PageContainer } from '../styles/styles'
 
 export default function Home() {
-  const { loading, error, data } = useQuery(GET_USER_INFO, {
-    variables: { userName: 'LucasKoval' },
-  })
+  const [search, setSearch] = useState('')
+  const [user, setUser] = useState(false)
+  const [loading, setLoading] = useState(true)
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
-  if (!data) return <p>Not found</p>
+  setTimeout(function () {
+    setLoading(false)
+  }, 1000)
 
-  /* if (repositoryOwner) {
-    const { id, login, url, avatarUrl, repositories } = data.repositoryOwner
-  } */
+  if (loading) {
+    return (
+      <BodyContainer className="BodyContainer">
+        <Loader type="Watch" color="#58a6ff" height={100} width={100} />
+      </BodyContainer>
+    )
+  }
 
   return (
     <BodyContainer className="BodyContainer">
-      <Header />
+      <Header user={user} setUser={setUser} setSearch={setSearch} />
       <MainSection className="MainSection">
         <PageContainer className="PageContainer">
-          <ColumnContainer className="ColumnContainer">
-            <div>
-              <Image src="/images/user.png" alt="Image" width="200" height="200" />
-            </div>
-            <div>
-              <ul>
-                <li>Name:</li>
-                <li>Company:</li>
-                <li>Description:</li>
-              </ul>
-            </div>
-          </ColumnContainer>
-
-          <ColumnContainer className="ColumnContainer">
-            <Title>Repository</Title>
-            <div>
-              <ul>
-                <li>Name:</li>
-                <li>Description:</li>
-                <li>Commits:</li>
-              </ul>
-            </div>
-          </ColumnContainer>
+          {user ? (
+            <Results user={user} setUser={setUser} search={search} />
+          ) : (
+            <SearchBar user={user} setUser={setUser} search={search} setSearch={setSearch} />
+          )}
         </PageContainer>
       </MainSection>
       <Footer />

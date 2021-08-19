@@ -36,6 +36,7 @@ const Title = styled.h5`
 `
 
 const Credits = styled.p`
+  font-size: 1rem;
   margin: 0;
   color: #58a6ff;
 `
