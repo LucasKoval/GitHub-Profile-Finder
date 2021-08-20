@@ -10,7 +10,7 @@ const FooterSection = styled.footer`
   color: #8b949e;
   background-color: #161b22;
   @media (max-width: 425px) {
-    height: 13.5rem;
+    height: 9.5rem;
   }
 `
 
@@ -22,6 +22,7 @@ const Container = styled.div`
   align-items: center;
   @media (max-width: 425px) {
     flex-flow: column;
+    height: 9.5rem;
   }
 `
 
@@ -32,7 +33,7 @@ const SubContainer = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 425px) {
-    margin: 0.8rem 0;
+    margin: 0.4rem 0;
   }
 `
 

@@ -11,7 +11,6 @@ const PageContainer = styled.div`
 
 const ColumnContainer = styled.div`
   width: 40%;
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +18,8 @@ const ColumnContainer = styled.div`
   padding: 1rem;
   @media (max-width: 425px) {
     width: 100%;
-    padding: 1rem 0;
+    max-height: 100%;
+    padding: 0;
   }
 `
 
@@ -47,4 +47,8 @@ const ImageContainer = styled.div`
   }
 `
 
-export { PageContainer, ColumnContainer, Title, ImageContainer }
+const DataContainer = styled.div`
+  display: flex;
+`
+
+export { PageContainer, ColumnContainer, Title, ImageContainer, DataContainer }

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const HeaderSection = styled.header`
   width: 100%;
   height: 6.5rem;
+  position: relative;
   box-shadow: 0 0 5px #8b949e;
   display: flex;
   justify-content: space-between;
@@ -10,7 +11,10 @@ const HeaderSection = styled.header`
   color: #58a6ff;
   background-color: #161b22;
   @media (max-width: 425px) {
-    height: 5rem;
+    height: 4.5rem;
+    position: fixed;
+    top: 0;
+    z-index: 100;
   }
 `
 

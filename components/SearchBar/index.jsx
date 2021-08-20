@@ -25,7 +25,7 @@ const SearchBar = ({ setUser, search, setSearch }) => {
       <Search className="searchBar">
         <SearchInput
           className="searchInput"
-          placeholder="Find a GitHub user"
+          placeholder="Find a profile..."
           onInput={handleInput}
           onKeyDown={handleKey}
         />
