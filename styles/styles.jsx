@@ -10,19 +10,22 @@ const BodyContainer = styled.header`
   align-items: center;
   color: #8b949e;
   background-color: #0d1117;
+  @media (max-width: 425px) {
+    min-height: 100vh;
+    height: -webkit-fill-available;
+  }
 `
 
 const MainSection = styled.div`
   width: 100%;
-  padding: 5rem 0;
+  padding: 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: auto;
   @media (max-width: 425px) {
-    overflow: scroll;
+    height: -webkit-fill-available;
   }
 `
 
@@ -35,6 +38,7 @@ const PageContainer = styled.div`
   align-items: center;
   @media (max-width: 425px) {
     width: 90%;
+    height: -webkit-fill-available;
     flex-flow: column;
     justify-content: center;
   }

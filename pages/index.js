@@ -12,7 +12,7 @@ export default function Home() {
   const [user, setUser] = useState(false)
   const [loading, setLoading] = useState(true)
 
-  setTimeout(function () {
+  setTimeout(() => {
     setLoading(false)
   }, 1000)
 

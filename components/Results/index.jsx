@@ -5,7 +5,7 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
 import Error404 from '../../pages/404'
 import { GET_USER_INFO, GET_REPOSITORIES } from '../../services/query'
-import { PageContainer, ColumnContainer, Title, ImageContainer } from './style'
+import { PageContainer, ColumnContainer, Title, ImageContainer, DataContainer } from './style'
 
 const Results = ({ search }) => {
   const { loading, error, data } = useQuery(GET_USER_INFO, {
@@ -52,7 +52,7 @@ const Results = ({ search }) => {
           />
         </ImageContainer>
 
-        <div>
+        <DataContainer>
           <ul>
             <li>Name: {name || '-'}</li>
             <li>Location: {location || '-'}</li>
@@ -66,21 +66,27 @@ const Results = ({ search }) => {
                 {url || '-'}
               </a>
             </li>
-            <li>Website: {websiteUrl || '-'}</li>
+            <li>
+              Website:
+              <a href={websiteUrl} target="_blank" rel="noreferrer">
+                {' '}
+                {websiteUrl || '-'}
+              </a>
+            </li>
           </ul>
-        </div>
+        </DataContainer>
       </ColumnContainer>
 
       <ColumnContainer className="ColumnContainer">
         <Title>Repository</Title>
 
-        <div>
+        <DataContainer>
           <ul>
             <li>Name:</li>
             <li>Description:</li>
             <li>Commits:</li>
           </ul>
-        </div>
+        </DataContainer>
       </ColumnContainer>
     </>
   )
