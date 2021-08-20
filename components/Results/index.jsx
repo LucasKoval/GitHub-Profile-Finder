@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { useQuery } from '@apollo/client'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Accordion from 'react-bootstrap/Accordion'
+import Repo from '../Repo'
 import Error404 from '../../pages/404'
-import { GET_USER_INFO, GET_REPOSITORIES } from '../../services/query'
-import { PageContainer, ColumnContainer, Title, ImageContainer, DataContainer } from './style'
+import { GET_USER_INFO, GET_REPOSITORY } from '../../services/query'
+import {
+  PageContainer,
+  ColumnContainer,
+  Title,
+  ImageContainer,
+  DataContainer,
+  ListContainer,
+} from './style'
 
 const Results = ({ search }) => {
+  const [repository, setRepository] = useState(false)
   const { loading, error, data } = useQuery(GET_USER_INFO, {
     variables: { userName: search },
   })
@@ -22,7 +34,6 @@ const Results = ({ search }) => {
   if (error) return <Error404 />
 
   const {
-    id,
     name,
     login,
     avatarUrl,
@@ -37,6 +48,14 @@ const Results = ({ search }) => {
     contributionsCollection,
     repositories,
   } = data.user
+
+  const repos = repositories.nodes.map((repo) => {
+    return repo
+  })
+
+  const handleSelect = (repo) => {
+    setRepository(repo)
+  }
 
   return (
     <>
@@ -53,39 +72,89 @@ const Results = ({ search }) => {
         </ImageContainer>
 
         <DataContainer>
-          <ul>
-            <li>Name: {name || '-'}</li>
-            <li>Location: {location || '-'}</li>
-            <li>Company: {company || '-'}</li>
-            <li>Bio: {bio || '-'}</li>
-            <li>Email: {email || '-'}</li>
+          <ListContainer>
             <li>
-              URL:
+              <strong>Username:</strong> {login || '-'}
+            </li>
+            <li>
+              <strong>Name:</strong> {name || '-'}
+            </li>
+            <li>
+              <strong>Location:</strong> {location || '-'}
+            </li>
+            <li>
+              <strong>Company:</strong> {company || '-'}
+            </li>
+            <li>
+              <strong>Bio:</strong> {bio || '-'}
+            </li>
+            <li>
+              <strong>Followers:</strong> {followers.totalCount}
+            </li>
+            <li>
+              <strong>Following:</strong> {following.totalCount}
+            </li>
+            <hr />
+            <li>
+              <strong>Email:</strong>
+              <a href={`mailto:${url}`} target="_blank" rel="noreferrer">
+                {' '}
+                {email || '-'}
+              </a>
+            </li>
+            <li>
+              <strong>URL:</strong>
               <a href={url} target="_blank" rel="noreferrer">
                 {' '}
                 {url || '-'}
               </a>
             </li>
             <li>
-              Website:
+              <strong>Website:</strong>
               <a href={websiteUrl} target="_blank" rel="noreferrer">
                 {' '}
                 {websiteUrl || '-'}
               </a>
             </li>
-          </ul>
+            <hr />
+            {/* <li>
+              <strong>Contribution Years:</strong> {contributionsCollection.contributionYears}
+            </li> (NOT_IN_USE) */}
+            <li>
+              <strong>Repositories Contributions:</strong>{' '}
+              {contributionsCollection.totalRepositoryContributions}
+            </li>
+            <li>
+              <strong>Pull Request Contributions:</strong>{' '}
+              {contributionsCollection.totalPullRequestContributions}
+            </li>
+            <li>
+              <strong>Commit Contributions:</strong>{' '}
+              {contributionsCollection.totalCommitContributions}
+            </li>
+            <hr className="onlyMobile" />
+          </ListContainer>
         </DataContainer>
       </ColumnContainer>
 
-      <ColumnContainer className="ColumnContainer">
-        <Title>Repository</Title>
+      <ColumnContainer className="lastColumnContainer">
+        <Title>Repositories</Title>
+
+        <DropdownButton id="dropdown-basic-button" title="Repository">
+          {repos &&
+            repos.map((repo, index) => (
+              <Dropdown.Item
+                href={`#/action-${index + 1}`}
+                key={index + 1}
+                onClick={() => handleSelect(repo.name)}
+              >
+                {repo.name}
+              </Dropdown.Item>
+            ))}
+        </DropdownButton>
 
         <DataContainer>
-          <ul>
-            <li>Name:</li>
-            <li>Description:</li>
-            <li>Commits:</li>
-          </ul>
+          <Repo repo={repository} owner={login} />
         </DataContainer>
       </ColumnContainer>
     </>

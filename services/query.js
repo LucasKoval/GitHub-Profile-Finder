@@ -25,7 +25,7 @@ const GET_USER_INFO = gql`
         totalCommitContributions
         totalPullRequestContributions
       }
-      repositories(first: 15) {
+      repositories(last: 8) {
         totalCount
         nodes {
           name
@@ -35,33 +35,21 @@ const GET_USER_INFO = gql`
   }
 `
 
-const GET_REPOSITORIES = gql`
-  query getRepositories($userName: String!) {
-    repositoryOwner(login: $userName) {
-      repositories(first: 20, ownerAffiliations: OWNER) {
+const GET_REPOSITORY = gql`
+  query getRepositories($name: String!, $owner: String!) {
+    repository(name: $name, owner: $owner) {
+      name
+      description
+      stargazerCount
+      commitComments(last: 20) {
         totalCount
         nodes {
-          id
-          name
-          description
-          isPrivate
-          stargazerCount
-          commitComments(first: 20) {
-            totalCount
-            nodes {
-              commit {
-                id
-                commitUrl
-                messageBody
-              }
-              createdAt
-              url
-            }
-          }
-          issues(first: 10) {
-            nodes {
-              title
-            }
+          commit {
+            id
+            changedFiles
+            commitUrl
+            committedDate
+            messageBody
           }
         }
       }
@@ -71,5 +59,5 @@ const GET_REPOSITORIES = gql`
 
 module.exports = {
   GET_USER_INFO,
-  GET_REPOSITORIES,
+  GET_REPOSITORY,
 }

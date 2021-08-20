@@ -5,7 +5,7 @@ const SearchContainer = styled.div`
   height: 3.2rem;
   display: flex;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
 `
 
 const Search = styled.div`
@@ -55,7 +55,7 @@ const SearchInput = styled.input`
   font-size: 16px;
   line-height: 17px;
   color: grey;
-  padding: 1rem;
+  padding: 0.9rem;
   border-radius: 6px;
   :focus {
     outline: none;
