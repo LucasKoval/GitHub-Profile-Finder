@@ -37,12 +37,12 @@ const SubContainer = styled.div`
   }
 `
 
-const Title = styled.h5`
+const Title = styled.h4`
   margin: 0;
 `
 
 const Credits = styled.p`
-  font-size: 1rem;
+  font-size: 17px;
   margin: 0;
   color: #58a6ff;
 `

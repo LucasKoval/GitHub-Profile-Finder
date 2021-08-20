@@ -18,8 +18,7 @@ const HeaderSection = styled.header`
   }
 `
 
-const Title = styled.h2`
-  font-size: 2rem;
+const Title = styled.h1`
   text-align: center;
   margin: 0;
   @media (max-width: 425px) {

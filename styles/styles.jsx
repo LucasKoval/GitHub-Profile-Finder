@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const BodyContainer = styled.header`
+const BodyContainer = styled.div`
   min-height: 100vh;
   height: 100vh;
   padding: 0;
@@ -16,7 +16,7 @@ const BodyContainer = styled.header`
   }
 `
 
-const MainSection = styled.div`
+const MainSection = styled.main`
   width: 100%;
   padding: 0;
   flex: 1;
@@ -34,7 +34,7 @@ const PageContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   @media (max-width: 425px) {
     width: 90%;
@@ -44,4 +44,22 @@ const PageContainer = styled.div`
   }
 `
 
-export { BodyContainer, MainSection, PageContainer }
+const ErrorContainer = styled.div`
+  img {
+    border-radius: 75px;
+  }
+  @media (max-width: 425px) {
+    margin-top: 5rem;
+    img {
+      width: '300px';
+      height: '169px';
+    }
+  }
+`
+
+const NotFound = styled.h1`
+  text-align: center;
+  margin-bottom: 1rem;
+`
+
+export { BodyContainer, MainSection, PageContainer, ErrorContainer, NotFound }
