@@ -4,51 +4,76 @@ import { useQuery } from '@apollo/client'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
 import Error404 from '../../pages/404'
-import { GET_ALL_DATA, GET_USER_INFO, GET_REPOSITORIES } from '../../services/query'
-import { BodyContainer, ColumnContainer, Title } from './style'
+import { GET_USER_INFO, GET_REPOSITORIES } from '../../services/query'
+import { PageContainer, ColumnContainer, Title, ImageContainer } from './style'
 
-const Results = ({ user, setUser, search }) => {
+const Results = ({ search }) => {
   const { loading, error, data } = useQuery(GET_USER_INFO, {
     variables: { userName: search },
   })
 
-  const addDefaultSrc = (event) => {
-    event.target.src = '/images/default-avatar.png'
-  }
-
   if (loading) {
     return (
-      <BodyContainer className="BodyContainer">
+      <PageContainer className="BodyContainer">
         <Loader type="Watch" color="#58a6ff" height={100} width={100} />
-      </BodyContainer>
+      </PageContainer>
     )
   }
   if (error) return <Error404 />
 
-  const { id, login, url, avatarUrl, repositories } = data.repositoryOwner
+  const {
+    id,
+    name,
+    login,
+    avatarUrl,
+    email,
+    location,
+    company,
+    bio,
+    url,
+    websiteUrl,
+    followers,
+    following,
+    contributionsCollection,
+    repositories,
+  } = data.user
+
   return (
     <>
       <ColumnContainer className="ColumnContainer">
-        <div className="userAvatarContainer">
+        <ImageContainer className="userAvatarContainer">
           <Image
-            src={avatarUrl ? avatarUrl : '/images/default-avatar.png'}
-            onError={addDefaultSrc}
+            src={avatarUrl}
             alt="Avatar"
             width="200"
             height="200"
+            placeholder="blur"
+            blurDataURL="/images/logo.png"
           />
-        </div>
+        </ImageContainer>
+
         <div>
           <ul>
-            <li>Name: {login}</li>
-            <li>Company:</li>
-            <li>URL: {url}</li>
+            <li>Name: {name || '-'}</li>
+            <li>Location: {location || '-'}</li>
+            <li>Company: {company || '-'}</li>
+            <li>Bio: {bio || '-'}</li>
+            <li>Email: {email || '-'}</li>
+            <li>
+              URL:
+              <a href={url} target="_blank" rel="noreferrer">
+                {' '}
+                {url || '-'}
+              </a>
+            </li>
+            <li>Website: {websiteUrl || '-'}</li>
           </ul>
         </div>
       </ColumnContainer>
 
       <ColumnContainer className="ColumnContainer">
         <Title>Repository</Title>
+
         <div>
           <ul>
             <li>Name:</li>

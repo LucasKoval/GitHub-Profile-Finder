@@ -29,6 +29,7 @@ const SearchBar = ({ setUser, search, setSearch }) => {
           onInput={handleInput}
           onKeyDown={handleKey}
         />
+
         <SearchButton className="searchButton" onClick={() => handleSearch()}>
           <BsSearch />
         </SearchButton>

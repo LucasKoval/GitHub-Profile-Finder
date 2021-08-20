@@ -20,9 +20,9 @@ const MainSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (max-width: 768px) {
-  }
+  overflow: auto;
   @media (max-width: 425px) {
+    overflow: scroll;
   }
 `
 
@@ -33,9 +33,10 @@ const PageContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  @media (max-width: 768px) {
-  }
   @media (max-width: 425px) {
+    width: 90%;
+    flex-flow: column;
+    justify-content: center;
   }
 `
 

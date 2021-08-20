@@ -9,7 +9,7 @@ export default function Error404() {
       <Header />
       <MainSection className="MainSection">
         <PageContainer className="PageContainer">
-          <h1>Error 404!</h1>
+          <h2>User not found!</h2>
         </PageContainer>
       </MainSection>
       <Footer />
