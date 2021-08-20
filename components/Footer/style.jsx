@@ -9,6 +9,9 @@ const FooterSection = styled.footer`
   align-items: center;
   color: #8b949e;
   background-color: #161b22;
+  @media (max-width: 425px) {
+    height: 13.5rem;
+  }
 `
 
 const Container = styled.div`
@@ -17,9 +20,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 768px) {
-  }
   @media (max-width: 425px) {
+    flex-flow: column;
   }
 `
 
@@ -29,6 +31,9 @@ const SubContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 425px) {
+    margin: 0.8rem 0;
+  }
 `
 
 const Title = styled.h5`

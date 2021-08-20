@@ -2,8 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import { HeaderSection, Title, ImageContainer } from './style'
 
-const Header = ({ user, setUser, setSearch }) => {
+const Header = ({ setUser, setSearch }) => {
   const handleSearch = () => {
+    setSearch('')
     setUser(false)
   }
 
@@ -13,7 +14,7 @@ const Header = ({ user, setUser, setSearch }) => {
   }
 
   return (
-    <HeaderSection>
+    <HeaderSection className="HeaderSection">
       <ImageContainer className="searchIcon" onClick={() => handleSearch()}>
         <Image
           src="/images/search.webp"
@@ -23,7 +24,9 @@ const Header = ({ user, setUser, setSearch }) => {
           className="searchIcon"
         />
       </ImageContainer>
-      <Title>Take Home Test</Title>
+
+      <Title>GitHub Profile Finder</Title>
+
       <ImageContainer className="myAvatar" onClick={() => handleProfile()}>
         <Image
           src="/images/myProfile.jpg"

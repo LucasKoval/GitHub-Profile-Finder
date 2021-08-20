@@ -32,8 +32,7 @@ const SearchButton = styled.button`
   height: 3.2rem;
   width: 4rem;
   color: white;
-  background-color: #2ea043 /* ${(props) => props.color} */;
-  /* padding: ${(props) => props.buttonPadding}; */
+  background-color: #2ea043;
   border-radius: 0px 6px 6px 0px;
   outline: none;
   :hover {

@@ -1,15 +1,12 @@
 import styled from 'styled-components'
 
-const BodyContainer = styled.header`
-  min-height: 100vh;
-  height: 100vh;
-  padding: 0;
+const PageContainer = styled.div`
+  width: 80%;
+  flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-flow: row;
   justify-content: center;
   align-items: center;
-  color: #8b949e;
-  background-color: #0d1117;
 `
 
 const ColumnContainer = styled.div`
@@ -19,13 +16,10 @@ const ColumnContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  div.userAvatarContainer img {
-    border-radius: 50%;
-    box-shadow: 0 0 5px #8b949e;
-  }
-  @media (max-width: 768px) {
-  }
+  padding: 1rem;
   @media (max-width: 425px) {
+    width: 100%;
+    padding: 1rem 0;
   }
 `
 
@@ -34,10 +28,23 @@ const Title = styled.h3`
   line-height: 1.15;
   font-size: 3rem;
   text-align: center;
-  @media (max-width: 768px) {
+`
+
+const ImageContainer = styled.div`
+  margin-bottom: 1rem;
+  div {
+    overflow: visible !important;
+    img {
+      border-radius: 50%;
+      box-shadow: 0 0 8px #8b949e;
+    }
   }
   @media (max-width: 425px) {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    width: 10rem;
+    height: 10rem;
   }
 `
 
-export { BodyContainer, ColumnContainer, Title }
+export { PageContainer, ColumnContainer, Title, ImageContainer }

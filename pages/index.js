@@ -26,11 +26,11 @@ export default function Home() {
 
   return (
     <BodyContainer className="BodyContainer">
-      <Header user={user} setUser={setUser} setSearch={setSearch} />
+      <Header setUser={setUser} setSearch={setSearch} />
       <MainSection className="MainSection">
         <PageContainer className="PageContainer">
           {user ? (
-            <Results user={user} setUser={setUser} search={search} />
+            <Results search={search} />
           ) : (
             <SearchBar user={user} setUser={setUser} search={search} setSearch={setSearch} />
           )}
