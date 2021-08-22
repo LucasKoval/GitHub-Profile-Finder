@@ -11,7 +11,7 @@ const Repo = ({ repo, owner }) => {
     variables: { name: repo, owner: owner },
   })
 
-  if (loading) {
+  if (repo && loading) {
     return (
       <PageContainer className="BodyContainer">
         <Loader type="Watch" color="#58a6ff" height={100} width={100} />
@@ -25,7 +25,6 @@ const Repo = ({ repo, owner }) => {
   const commits = commitComments.nodes.map((commit) => {
     return commit
   })
-  console.log('commits:', commits)
 
   return (
     <>

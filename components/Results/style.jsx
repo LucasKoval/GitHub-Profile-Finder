@@ -7,6 +7,9 @@ const PageContainer = styled.div`
   flex-flow: row;
   justify-content: center;
   align-items: center;
+  svg.Loader {
+    align-self: center;
+  }
 `
 
 const ColumnContainer = styled.div`
