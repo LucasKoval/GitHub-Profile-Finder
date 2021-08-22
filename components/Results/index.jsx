@@ -154,7 +154,7 @@ const Results = ({ search }) => {
         </DropdownButton>
 
         <DataContainer>
-          <Repo repo={login==='LucasKoval' ? 'Take-Home-Test' : repository} owner={login} />
+          <Repo repo={repository} owner={login} />
         </DataContainer>
       </ColumnContainer>
     </>

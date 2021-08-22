@@ -11,7 +11,7 @@ const Repo = ({ repo, owner }) => {
     variables: { name: repo, owner: owner },
   })
 
-  if (repo && loading) {
+  if (loading) {
     return (
       <PageContainer className="BodyContainer">
         <Loader type="Watch" color="#58a6ff" height={100} width={100} />

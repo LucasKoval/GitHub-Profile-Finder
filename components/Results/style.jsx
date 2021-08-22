@@ -7,9 +7,6 @@ const PageContainer = styled.div`
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  svg.Loader {
-    align-self: center;
-  }
 `
 
 const ColumnContainer = styled.div`
@@ -67,7 +64,7 @@ const ImageContainer = styled.div`
 
 const DataContainer = styled.div`
   display: flex;
-  align-self: flex-start;
+  align-self: center;
   max-height: 36rem;
 `
 
