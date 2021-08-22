@@ -1,12 +1,8 @@
-## Getting Started
+## Take Home Test 2021
 
-First, run the development server:
+Developed by Lucas Koval.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Starting Instructions
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

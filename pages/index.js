@@ -14,7 +14,7 @@ export default function Home() {
 
   setTimeout(() => {
     setLoading(false)
-  }, 1000)
+  }, 1200)
 
   if (loading) {
     return (
@@ -32,7 +32,7 @@ export default function Home() {
           {user ? (
             <Results search={search} />
           ) : (
-            <SearchBar user={user} setUser={setUser} search={search} setSearch={setSearch} />
+            <SearchBar setUser={setUser} search={search} setSearch={setSearch} />
           )}
         </PageContainer>
       </MainSection>
