@@ -13,8 +13,6 @@ export default function Error404() {
         alt="Not found"
         width="480"
         height="270"
-        placeholder="blur"
-        blurDataURL="/images/logo.png"
       />
     </ErrorContainer>
   )

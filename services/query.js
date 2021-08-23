@@ -25,7 +25,7 @@ const GET_USER_INFO = gql`
         totalCommitContributions
         totalPullRequestContributions
       }
-      repositories(last: 8) {
+      repositories(last: 9) {
         totalCount
         nodes {
           name

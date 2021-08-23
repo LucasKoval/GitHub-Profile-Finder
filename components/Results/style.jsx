@@ -7,8 +7,16 @@ const PageContainer = styled.div`
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  svg.Loader {
-    align-self: center;
+  &.loadingUser {
+    @media (max-width: 425px) {
+      margin-top: 3rem;
+    }
+  }
+  &.loadingRepo {
+    margin-top: 2rem;
+    @media (max-width: 425px) {
+      margin-top: 2rem;
+    }
   }
 `
 
@@ -46,6 +54,9 @@ const Title = styled.h3`
   margin: 1rem 0;
   line-height: 1.15;
   text-align: center;
+  strong {
+    color: #2ea043;
+  }
 `
 
 const ImageContainer = styled.div`
@@ -67,7 +78,7 @@ const ImageContainer = styled.div`
 
 const DataContainer = styled.div`
   display: flex;
-  align-self: flex-start;
+  align-self: center;
   max-height: 36rem;
 `
 
