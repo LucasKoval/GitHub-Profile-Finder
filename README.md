@@ -8,7 +8,7 @@ Developed by Lucas Koval.
 
 ## `Available Scripts`
 
-In the project directory, you can run:
+In the project root directory, you can run:
 
 ### `npm run dev`
 
@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm run build`, then `npm start`
+### `npm run build` then `npm start`
 
 Runs the app in the production mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -26,13 +26,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## `How to see the commits of the project`
 
 <p align="start">
-    <img alt="step_1" src="\images\step_1.jpg"/>
+    <img alt="step_1" src="images\step_1.jpg"/>
 </p>
 <p align="start">
-    <img alt="step_2" src="\images\step_2.jpg"/>
+    <img alt="step_2" src="images\step_2.jpg"/>
 </p>
 
-## `Author:` Lucas Koval | Full Stack Developer
+## `Author` Lucas Koval | Full Stack Developer
 
 Contact:
 
