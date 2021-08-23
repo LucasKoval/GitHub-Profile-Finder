@@ -34,8 +34,8 @@ const ImageContainer = styled.div`
       transform: scale(1.2);
     }
     @media (max-width: 425px) {
-      width: 2.5rem;
-      margin-left: 1.2rem;
+      width: 2.3rem;
+      margin-left: 1rem;
       :hover {
         transform: none;
       }
@@ -57,14 +57,14 @@ const ImageContainer = styled.div`
       }
     }
     @media (max-width: 425px) {
-      width: 3rem;
-      height: 3rem;
-      margin-right: 1.2rem;
+      width: 2.8rem;
+      height: 2.8rem;
+      margin-right: 1rem;
       div {
         overflow: visible !important;
         img {
-          width: 3rem;
-          height: 3rem;
+          width: 2.8rem;
+          height: 2.8rem;
           border-radius: 50%;
           :hover {
             box-shadow: none;

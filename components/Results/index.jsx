@@ -26,7 +26,7 @@ const Results = ({ search }) => {
 
   if (loading) {
     return (
-      <PageContainer className="BodyContainer">
+      <PageContainer className="loadingUser">
         <Loader type="Watch" color="#58a6ff" height={100} width={100} />
       </PageContainer>
     )
@@ -138,24 +138,30 @@ const Results = ({ search }) => {
       </ColumnContainer>
 
       <ColumnContainer className="lastColumnContainer">
-        <Title>Repositories</Title>
+        <Title>
+          Public Repositories: <strong>{repositories.totalCount}</strong>
+        </Title>
 
-        <DropdownButton id="dropdown-basic-button" title="Repository">
-          {repos &&
-            repos.map((repo, index) => (
-              <Dropdown.Item
-                href={`#/action-${index + 1}`}
-                key={index + 1}
-                onClick={() => handleSelect(repo.name)}
-              >
-                {repo.name}
-              </Dropdown.Item>
-            ))}
-        </DropdownButton>
+        {repos.length > 0 && (
+          <>
+            <DropdownButton id="dropdown-basic-button" title="Repository">
+              {repos &&
+                repos.map((repo, index) => (
+                  <Dropdown.Item
+                    href={`#/action-${index + 1}`}
+                    key={index + 1}
+                    onClick={() => handleSelect(repo.name)}
+                  >
+                    {repo.name}
+                  </Dropdown.Item>
+                ))}
+            </DropdownButton>
 
-        <DataContainer>
-          <Repo repo={repository} owner={login} />
-        </DataContainer>
+            <DataContainer>
+              <Repo repo={repository} owner={login} />
+            </DataContainer>
+          </>
+        )}
       </ColumnContainer>
     </>
   )

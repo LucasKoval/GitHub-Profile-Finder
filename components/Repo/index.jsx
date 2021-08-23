@@ -13,8 +13,8 @@ const Repo = ({ repo, owner }) => {
 
   if (loading) {
     return (
-      <PageContainer className="BodyContainer">
-        <Loader type="Watch" color="#58a6ff" height={100} width={100} />
+      <PageContainer className="loadingRepo">
+        <Loader type="Watch" color="#58a6ff" height={100} width={100} timeout={3000} />
       </PageContainer>
     )
   }
@@ -48,6 +48,9 @@ const Repo = ({ repo, owner }) => {
             commits.map((commit, index) => (
               <>
                 <li key={index + 1}>
+                  <p>
+                    <strong>Commit:</strong> {index + 1}
+                  </p>
                   <p>
                     <strong>Committed Date:</strong>{' '}
                     {dayjs(commit.commit.committedDate).format('DD/MM/YYYY') || '-'}
