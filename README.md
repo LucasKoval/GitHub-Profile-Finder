@@ -26,10 +26,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## `How to see the commits of the project`
 
 <p align="start">
-    <img alt="step_1" src="images\step_1.jpg"/>
+    <img alt="step_1" src="https://user-images.githubusercontent.com/40580765/130385201-cc929b91-cd71-4ad4-8d61-db4c4f516619.jpg"/>
 </p>
 <p align="start">
-    <img alt="step_2" src="images\step_2.jpg"/>
+    <img alt="step_2" src="https://user-images.githubusercontent.com/40580765/130385208-67d82051-2f17-4586-b4ea-c3993bf08f4c.jpg"/>
 </p>
 
 ## `Author` Lucas Koval | Full Stack Developer
