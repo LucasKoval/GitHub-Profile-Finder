@@ -7,7 +7,7 @@ const FooterSection = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #8b949e;
+  color: #d8d9d3;
   background-color: #161b22;
   @media (max-width: 425px) {
     height: 9.5rem;

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { FooterSection, Container, SubContainer, Title, Credits } from './style'
+import { FooterSection, Container, SubContainer, Title, Credits } from './styles'
 
 const Footer = () => {
   return (

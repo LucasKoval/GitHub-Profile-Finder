@@ -8,7 +8,7 @@ const BodyContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #8b949e;
+  color: #d8d9d3;
   background-color: #0d1117;
   @media (max-width: 425px) {
     min-height: 100vh;

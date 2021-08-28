@@ -2,13 +2,13 @@ import Head from 'next/head'
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../styles/globals.css'
+import '@/styles/globals.css'
 
 function MyApp({ Component, pageProps, token }) {
+  // Apollo Client configuration
   const httpLink = createHttpLink({
     uri: 'https://api.github.com/graphql',
   })
-
   const authLink = setContext((_, { headers }) => {
     return {
       headers: {
@@ -17,7 +17,6 @@ function MyApp({ Component, pageProps, token }) {
       },
     }
   })
-
   const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: authLink.concat(httpLink),

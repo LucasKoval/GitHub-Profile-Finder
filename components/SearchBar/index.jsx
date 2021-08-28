@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsSearch } from 'react-icons/bs'
-import { SearchContainer, Search, SearchInput, SearchButton } from './style'
+import { SearchContainer, Search, SearchInput, SearchButton } from './styles'
 
 const SearchBar = ({ setUser, search, setSearch }) => {
   const handleInput = (event) => {

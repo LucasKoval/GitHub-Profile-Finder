@@ -1,12 +1,14 @@
 import React from 'react'
+import { get } from 'lodash'
 import { useQuery } from '@apollo/client'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
 import dayjs from 'dayjs'
-import { GET_REPOSITORY } from '../../services/query'
-import { PageContainer, ListContainer, CommitList } from '../Results/style'
+import { GET_REPOSITORY } from '@/api/query'
+import { PageContainer, ListContainer, CommitList } from '@/components/Results/styles'
 
 const Repo = ({ repo, owner }) => {
+  // Api request - Search repository
   const { loading, error, data } = useQuery(GET_REPOSITORY, {
     variables: { name: repo, owner: owner },
   })
@@ -20,9 +22,9 @@ const Repo = ({ repo, owner }) => {
   }
   if (error) return <></>
 
-  const { name, description, stargazerCount, commitComments } = data.repository
+  const { name, description, stargazerCount, commitComments } = get(data, 'repository', {})
 
-  const commits = commitComments.nodes.map((commit) => {
+  const commits = get(commitComments, 'nodes', []).map((commit) => {
     return commit
   })
 
