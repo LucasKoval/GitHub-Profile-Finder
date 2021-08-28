@@ -1,21 +1,23 @@
 import React from 'react'
 import Image from 'next/image'
-import { HeaderSection, Title, ImageContainer } from './style'
+import { HeaderSection, Title, ImageContainer } from './styles'
 
 const Header = ({ setUser, setSearch }) => {
-  const handleSearch = () => {
+  const handleNewSearch = () => {
     setSearch('')
     setUser(false)
+    history.pushState(null, null, '/')
   }
 
   const handleProfile = () => {
     setSearch('LucasKoval')
     setUser(true)
+    history.pushState(null, null, '/')
   }
 
   return (
     <HeaderSection className="HeaderSection">
-      <ImageContainer className="searchIcon" onClick={() => handleSearch()}>
+      <ImageContainer className="searchIcon" onClick={() => handleNewSearch()}>
         <Image
           src="/images/search.webp"
           alt="SearchIcon"

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
+import { get } from 'lodash'
 import { useQuery } from '@apollo/client'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import Loader from 'react-loader-spinner'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import Accordion from 'react-bootstrap/Accordion'
-import Repo from '../Repo'
-import Error404 from '../../pages/404'
-import { GET_USER_INFO, GET_REPOSITORY } from '../../services/query'
+import Repo from '@/components/Repo'
+import Error404 from '@/pages/404'
+import { GET_USER_INFO } from '@/api/query'
 import {
   PageContainer,
   ColumnContainer,
@@ -16,10 +16,12 @@ import {
   ImageContainer,
   DataContainer,
   ListContainer,
-} from './style'
+} from './styles'
 
 const Results = ({ search }) => {
   const [repository, setRepository] = useState(false)
+
+  // Api request - Search user
   const { loading, error, data } = useQuery(GET_USER_INFO, {
     variables: { userName: search },
   })
@@ -47,9 +49,9 @@ const Results = ({ search }) => {
     following,
     contributionsCollection,
     repositories,
-  } = data.user
+  } = get(data, 'user', {})
 
-  const repos = repositories.nodes.map((repo) => {
+  const repos = get(repositories, 'nodes', []).map((repo) => {
     return repo
   })
 
@@ -117,9 +119,6 @@ const Results = ({ search }) => {
               </a>
             </li>
             <hr />
-            {/* <li>
-              <strong>Contribution Years:</strong> {contributionsCollection.contributionYears}
-            </li> (NOT_IN_USE) */}
             <li>
               <strong>Repositories Contributions:</strong>{' '}
               {contributionsCollection.totalRepositoryContributions}
