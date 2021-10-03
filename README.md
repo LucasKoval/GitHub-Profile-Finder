@@ -1,10 +1,10 @@
-# Take Home Test (2021)
+# GitHub Profile Finder (2021)
 
-Developed by Lucas Koval.
+Developed by [Lucas Koval](https://lucaskovaldev.com/) for the Take Home Test 2021.
 
-## `APP URL:`
+## `APP URL`
 
-[https://take-home-test-lkdev.vercel.app/](https://take-home-test-lkdev.vercel.app/)
+[https://github-profile-finder-lkdev.vercel.app/](https://github-profile-finder-lkdev.vercel.app/)
 
 ## `Available Scripts`
 
@@ -23,16 +23,9 @@ You will also see any lint errors in the console.
 Runs the app in the production mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## `How to see the commits of the project`
+## `Author`
 
-<p align="start">
-    <img alt="step_1" src="https://user-images.githubusercontent.com/40580765/130385201-cc929b91-cd71-4ad4-8d61-db4c4f516619.jpg"/>
-</p>
-<p align="start">
-    <img alt="step_2" src="https://user-images.githubusercontent.com/40580765/130385208-67d82051-2f17-4586-b4ea-c3993bf08f4c.jpg"/>
-</p>
-
-## `Author` Lucas Koval | Full Stack Developer
+## Lucas Koval | Full Stack Developer
 
 Contact:
 
