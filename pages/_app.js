@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps, token }) {
         <title>Take Home Test</title>
         <meta name="description" content="GitHub Profile Finder developed by Lucas Koval" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/icons/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <ApolloProvider client={client}>
         <Component {...pageProps} />
