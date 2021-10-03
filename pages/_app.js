@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps, token }) {
   return (
     <>
       <Head>
-        <title>Take Home Test</title>
+        <title>GitHub Profile Finder</title>
         <meta name="description" content="GitHub Profile Finder developed by Lucas Koval" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
